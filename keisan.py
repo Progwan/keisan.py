@@ -84,7 +84,7 @@ def keisans():
         kkkkk += ["問題" + str(i + 1) +  ":" + str(a) + sis[sisoku] + str(b),"四則演算:" + str(sisoku)]
         try:
             awnser = int(input(str(i + 1) + "問目：" + str(a) + sis[sisoku] + str(b) + "= ?"))
-        except KeyboardInterruput:
+        except KeyboardInterrupt:
             print("終了します")
             sys.exit()
         except:
@@ -161,7 +161,7 @@ def chart():
         plt.savefig("batsu.jpg")
 
 def help():
-    print("   \     |      /-    -\                 ")
+    print("   \     |       /-   -\                 ")
     print("         |        \   /                  ")
     print(" -----   |      |------|                 ")
     print("         |      |      |                 ")
@@ -183,7 +183,7 @@ def help():
     print("num テストの出題回数                     ")
 try:
     if sys.argv[1] == "t":
-         keisans()
+        keisans()
     elif sys.argv[1] == "k":
         kaiseki()
     elif sys.argv[1] == "c":
@@ -192,6 +192,6 @@ try:
         help()
     else:
         print("引数が正しくありません")
-except:
+except IndexError:
     print("引数が足りません")
         
