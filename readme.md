@@ -1,14 +1,13 @@
 # 使い方
 　- pythonがインストールされている必要があります
 ## 最初にやること
-  ~/.bashrc または~/.bash_profileに
+  ```~/.bashrc``` 
+または```~/.bash_profile```に
   ```
-    export $PATH=計算アプリの入っているフォルダの絶対パス
-　```
+    export $PATH=計算アプリの入っているフォルダの絶対パス```
   次に
 ```
     source ~/.bashrc(または~/.bash_profile)
-```
   そうして、
 ```
   chmod 777 setup.py
