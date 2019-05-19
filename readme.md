@@ -16,7 +16,7 @@
 ```
 とします。
 ## 使う
-```
-  keisan.py --help```を参照
+```keisan.py --help```
+を参照
 ## ライセンス
 MIT
