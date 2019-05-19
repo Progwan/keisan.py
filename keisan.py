@@ -140,7 +140,7 @@ def kaiseki():
         except:
             print("割り算の問題は出題されていません。")
         try:
-            print("全体の正解率は、" + str(batukai / marukai * 100) + "%で、結果は、" + str(marukai) + "/" + str(marukai))
+            print("全体の正解率は、" + str(marukai / (marukai + batukai) * 100) + "%で、結果は、" + str(marukai) + "/" + str(marukai + batukai))
         except:
             print("全体の正解率は、100%で、結果は、" + str(marukai) + "/" + str(marukai))
 
@@ -148,10 +148,11 @@ def chart():
     # print(type(maru[0]))
     # sys.exit()
     if marukai > 0:
-        plt.pie(maru,labels=["+","-","×","÷"],counterclock=False,startangle=90,colors=["yellow","gold","slateblue","lightcoral"])
+        plt.pie(maru,labels=["plus","minus","mul","div"],counterclock=False,startangle=90,colors=["yellow","gold","slateblue","lightcoral"])
+        plt.legend(loc = "upper right")
         plt.savefig("maru.jpg")
     if batukai > 0:
-        plt.pie(batsu,labels=["+","-","×","÷"],counterclock=False,startangle=90,colors=["yellow","gold","slateblue","lightcoral"])
+        plt.pie(batsu,labels=["plus","minus","mul","div"],counterclock=False,startangle=90,colors=["yellow","gold","slateblue","lightcoral"])
         plt.savefig("batsu.jpg")
 
 def help():
