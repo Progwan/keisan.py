@@ -19,14 +19,15 @@ import subprocess as un
 #writer = csv.writer(f,lineterminator='\n',delimiter=',')
 try:
     data = json.loads(open("kekka.json").read())
-# print(data)
-    maru = [int(data["0"]["seikai"]),int(data["1"]["seikai"]),int(data["2"]["seikai"]),int(data["3"]["seikai"])]
-    batsu = [int(data["0"]["machigai"]),int(data["1"]["machigai"]),int(data["2"]["machigai"]),int(data["3"]["machigai"])]
-    marukai = 0
-    batukai = 0
 except:
     print("セットアップ中・・・")
     un.call("setup.py")
+
+maru = [int(data["0"]["seikai"]),int(data["1"]["seikai"]),int(data["2"]["seikai"]),int(data["3"]["seikai"])]
+batsu = [int(data["0"]["machigai"]),int(data["1"]["machigai"]),int(data["2"]["machigai"]),int(data["3"]["machigai"])]
+marukai = 0
+batukai = 0
+
 for i in maru:
     marukai += int(i)
 
