@@ -22,6 +22,7 @@ try:
 except:
     print("セットアップ中・・・")
     un.call("setup.py")
+    data = json.loads(open("kekka.json").read())
 
 maru = [int(data["0"]["seikai"]),int(data["1"]["seikai"]),int(data["2"]["seikai"]),int(data["3"]["seikai"])]
 batsu = [int(data["0"]["machigai"]),int(data["1"]["machigai"]),int(data["2"]["machigai"]),int(data["3"]["machigai"])]
@@ -199,6 +200,7 @@ try:
       elif i == "h":
         help()
       elif i == "s":
+        print("初期化しています。")
         un.call("setup.py")
       elif i == "e":
           print("")
