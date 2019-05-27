@@ -1,5 +1,7 @@
 # 使い方
 　pythonがインストールされている必要があります
+# バージョン
+2.0.0
 ## 最初にやること
   ```~/.bashrc``` 
 または```~/.bash_profile```に
@@ -12,11 +14,9 @@
 ```
   chmod 777 setup.py
   chmod 777 keisan.py
-  setup.py
 ```
 とします。
 ## 使う
-```keisan.py --help```
-を参照
+```keisan.pyのhコマンド参照```
 ## ライセンス
 MIT

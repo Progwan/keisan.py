@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import json
 import cgi
+import subprocess as un
 
 #f = open("time.csv",'a')
 #writer = csv.writer(f,lineterminator='\n',delimiter=',')
@@ -24,8 +25,8 @@ try:
     marukai = 0
     batukai = 0
 except:
-    print("setup.pyを実行してください。")
-    sys.exit()
+    print("セットアップ中・・・")
+    un.call("setup.py")
 for i in maru:
     marukai += int(i)
 
@@ -62,7 +63,7 @@ def keisans():
     kekkas = []
     seikai = 0
     try:
-        num = int(sys.argv[2])
+      num = int(input("回数を入力してください:"))
     except:
         
         print("整数を入力してください。")
@@ -93,6 +94,7 @@ def keisans():
         kkkkk += ["答え: " + str(awn),"自分の答え：" + str(awnser)]
         jikann = time.time() - tss
         kkkkk += ["かかった時間:" + str(jikann)]
+         
         if awnser == awn:
             print("正解！")
             seikai += 1
@@ -159,39 +161,54 @@ def chart():
     if batukai > 0:
         plt.pie(batsu,labels=["plus","minus","mul","div"],counterclock=False,startangle=90,colors=["yellow","gold","slateblue","lightcoral"])
         plt.savefig("batsu.jpg")
+    print("ファイルへ書き込みをしました。（maru.jpg, batsu.jpg）")
 
 def help():
-    print("   \     |       /-   -\                 ")
-    print("         |        \   /                  ")
-    print(" -----   |      |------|                 ")
-    print("         |      |      |                 ")
-    print("  ---    |      |------|                 ")
-    print("      -------   |      |                 ")
-    print("  ---    |      |------|                 ")
-    print("         |      |      |                 ")
-    print("         |      |------|                 ")
-    print("  |-|    |        /  \                   ")
-    print("  | |    |    -----------                ")
-    print("  |-|    |     /      \                  ")
-    print("                                         ")
-    print("                                         ")
-    print("keisan.py [tkch] [num]                   ")
-    print("tkch  t  計算のテスト この場合はnumを指定")
-    print("      k  解析                            ")
-    print("      c 円グラフを作成                   ")
-    print("      --help ヘルプ                      ")
-    print("num テストの出題回数                     ")
+    print("   \     |       /-   -\           ")
+    print("         |        \   /            ")
+    print(" -----   |      |------|           ")
+    print("         |      |      |           ")
+    print("  ---    |      |------|           ")
+    print("      -------   |      |           ")
+    print("  ---    |      |------|           ")
+    print("         |      |      |           ")
+    print("         |      |------|           ")
+    print("  |-|    |        /  \             ")
+    print("  | |    |    -----------          ")
+    print("  |-|    |     /      \            ")
+    print("                                   ")
+    print("                                   ")
+    print("keisan.py                          ")
+    print("t  計算のテスト この場合はnumを指定")
+    print("k  解析                            ")
+    print("c 円グラフを作成                   ")
+    print("h ヘルプ                           ")
+    print("s 履歴削除                         ")
+    print("e 終わる                           ")
+
 try:
-    if sys.argv[1] == "t":
-        keisans()
-    elif sys.argv[1] == "k":
-        kaiseki()
-    elif sys.argv[1] == "c":
-        chart()
-    elif sys.argv[1] == "--help":
+    while 1 == 1:
+      i = input("オプションを入力してください( h でヘルプ):")
+      if i == "t":
+          keisans()
+      elif i == "k":
+          kaiseki()
+      elif i == "c":
+          chart()
+      elif i == "h":
         help()
-    else:
+      elif i == "s":
+        un.call("setup.py")
+      elif i == "e":
+          print("")
+          print("終了します。")
+          break
+      else:
         print("引数が正しくありません")
+except KeyboardInterrupt:
+    print("")
+    print("終了します。")
+    sys.exit()
 except IndexError:
     print("引数が足りません")
         
