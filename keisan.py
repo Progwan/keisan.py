@@ -33,7 +33,9 @@ for i in maru:
     marukai += int(i)
 
 for j in batsu:
-        batukai += int(j)
+    batukai += int(j)
+print(marukai, batukai)
+
 def monsak(j):
     sisoku = random.randint(0,3)
     if sisoku == 0:
@@ -126,9 +128,12 @@ def keisans():
     fw = open("kekka.json","w")
     json.dump(data,fw,indent=2)
     print("書き込みが終了しました。")
+    marukai += seikai
+    batukai += (num - seikai)
 
 def kaiseki():
     # 3 7 10 13...と解析するところは移動する(間は4 3 3 ...)
+    print(marukai,batukai)
     if marukai == 0 and batukai == 0:
         print("履歴がありません。")
     else:
@@ -181,7 +186,7 @@ def help():
     print("                                   ")
     print("                                   ")
     print("keisan.py                          ")
-    print("t  計算のテスト この場合はnumを指定")
+    print("t  計算のテスト                    ")
     print("k  解析                            ")
     print("c 円グラフを作成                   ")
     print("h ヘルプ                           ")
@@ -202,6 +207,7 @@ try:
       elif i == "s":
         print("初期化しています。")
         un.call("setup.py")
+        break
       elif i == "e":
           print("")
           print("終了します。")
